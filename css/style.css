@@ -1,0 +1,509 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    padding: 15px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    background-image: linear-gradient(rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+                    linear-gradient(to right, rgba(0, 255, 0, 0.05) 1px, transparent 1px);
+    background-size: 15px 15px;
+}
+
+/* Text selection color */
+::selection {
+    background: #0f0;
+    color: #000;
+}
+::-moz-selection {
+    background: #0f0;
+    color: #000;
+}
+
+/* Scrollbar styles */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #000;
+    border-left: 1px solid #0f0;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #0f0;
+    box-shadow: 0 0 5px #0f0;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #00ff00;
+}
+
+/* Smooth scrolling behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    padding: 8px 0;
+    z-index: 2;
+    border-bottom: 1px solid #0f0;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    color: #0f0;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: #00ff00;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 12px;
+}
+
+.hamburger div {
+    width: 20px;
+    height: 2px;
+    background-color: #0f0;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.close-btn {
+    display: none;
+    color: #0f0;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+section {
+    margin: 30px 0;
+    opacity: 0;
+    animation: typeIn 0.5s steps(20) forwards;
+    animation-delay: calc(0.2s * var(--order));
+    border-left: 2px solid #0f0;
+    padding-left: 10px;
+}
+
+#typewriter {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #0f0;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: #0f0;
+    margin: 15px 0;
+    animation: slideIn 0.8s ease forwards;
+    box-shadow: 0 0 5px #0f0;
+}
+
+code {
+    background: rgba(0, 255, 0, 0.1);
+    padding: 2px 4px;
+    border-radius: 0;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+    font-size: 14px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li:before {
+    content: '>> ';
+    color: #0f0;
+    margin-right: 8px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #0f0;
+    font-size: 20px;
+    margin-right: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    color: #00ff00;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.contact-phone {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contact-phone:hover {
+    color: #00ff00;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.education-item {
+    margin-bottom: 15px;
+}
+
+summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px;
+    background: rgba(0, 255, 0, 0.1);
+    cursor: pointer;
+    border: 1px solid #0f0;
+    color: #0f0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+summary .education-title {
+    flex: 1 1 60%;
+    font-weight: bold;
+    text-align: left; /* Ensure left alignment */
+}
+
+summary .education-date {
+    flex: 1 1 40%;
+    text-align: right;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: '>> ';
+    color: #0f0;
+    margin-right: 8px;
+}
+
+.education-content {
+    padding: 10px;
+    border: 1px solid #0f0;
+    border-top: none;
+    background: #000;
+}
+
+.education-desc {
+    font-size: 14px;
+    margin: 0;
+}
+
+.education-desc ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.education-desc li:before {
+    content: '>> ';
+    color: #0f0;
+    margin-right: 8px;
+}
+
+.experience-item {
+    margin-bottom: 15px;
+}
+
+summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px;
+    background: rgba(0, 255, 0, 0.1);
+    cursor: pointer;
+    border: 1px solid #0f0;
+    color: #0f0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+summary .experience-title {
+    flex: 1 1 60%;
+    font-weight: bold;
+    text-align: left; /* Ensure left alignment */
+}
+
+summary .experience-date {
+    flex: 1 1 40%;
+    text-align: right;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: '>> ';
+    color: #0f0;
+    margin-right: 8px;
+}
+
+.experience-desc {
+    padding: 10px;
+    border: 1px solid #0f0;
+    border-top: none;
+    background: #000;
+    font-size: 14px;
+    margin: 0;
+}
+
+.projects-link {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.projects-link:hover {
+    color: #00ff00;
+    text-shadow: 0 0 5px #0f0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #0f0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: 1px solid #0f0;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+}
+
+@keyframes typeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .nav-container {
+        position: fixed;
+        padding: 5px 0;
+    }
+
+    .hamburger {
+        display: block;
+        top: 8px;
+        right: 10px;
+    }
+
+    nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+        border: 1px solid #0f0;
+        padding: 20px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        margin: 15px 0;
+        font-size: 16px;
+    }
+
+    .close-btn {
+        display: block;
+        font-size: 20px;
+        top: 8px;
+        right: 10px;
+    }
+
+    section {
+        margin: 40px 0 20px 0;
+        padding-left: 8px;
+        border-left-width: 1px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 8px;
+    }
+
+    hr {
+        margin: 10px 0;
+    }
+
+    code {
+        font-size: 12px;
+        padding: 1px 3px;
+    }
+
+    li:before {
+        margin-right: 5px;
+    }
+
+    .social-icons {
+        margin-top: 8px;
+    }
+
+    .social-icons a {
+        font-size: 18px;
+        margin-right: 8px;
+    }
+
+    .contact-phone {
+        font-size: 12px;
+    }
+
+    .education-item {
+        margin-bottom: 10px;
+    }
+
+    summary {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    summary .education-title,
+    summary .education-date {
+        font-size: 12px;
+    }
+
+    .education-content {
+        padding: 8px;
+    }
+
+    .education-desc {
+        font-size: 12px;
+    }
+
+    .experience-item {
+        margin-bottom: 10px;
+    }
+
+    summary {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    summary .experience-title,
+    summary .experience-date {
+        font-size: 12px;
+    }
+
+    .experience-desc {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .projects-link {
+        font-size: 12px;
+    }
+
+    footer {
+        padding: 15px 0;
+        font-size: 12px;
+        margin-top: 20px;
+    }
+}
