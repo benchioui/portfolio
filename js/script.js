@@ -2,7 +2,7 @@
 const typewriter = document.getElementById('typewriter');
 const text = 'Hello,';
 let index = 0;
-
+ 
 function type() {
     if (index < text.length) {
         typewriter.textContent += text.charAt(index);
